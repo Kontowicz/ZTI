@@ -16,7 +16,10 @@ def get_resource(thing):
     for r in results['results']['bindings']:
         splitted = r['type']['value'].split('/')
         if splitted[2] == 'dbpedia.org' and splitted[3] == 'ontology':
-            table.append((r['type']['value'],splitted[-1]))
+            table.append({
+                'label': splitted[-1],
+                'url': r['type']['value']
+            })
             
     return table
 
@@ -34,20 +37,30 @@ def get_property(word1, word2):
     for r in results['results']['bindings']:        
         splitted = r['label']['value'].split('/')
         if splitted[2] == 'dbpedia.org' and splitted[3] == 'property':
-            table.append((r['label']['value'],splitted[-1]))
+            table.append({
+                'property': splitted[-1],
+                'url': r['label']['value']
+            })
     
     return table
 
-def find_property(word1, word2):
+def find_property(word1, word2, list_of_possible_types = []):
     word1, word2 = word1.replace(" ", "_"), word2.replace(" ", "_")
     
     table = [get_property(word1, word2), get_property(word2, word1)]
     table = [item for sublist in table for item in sublist]
+
+    if len(list_of_possible_types) > 0:
+        table = [item for item in table if item['property'] in list_of_possible_types]
    
     return table
 
 
-
-print(get_resource('Poland'))
-print(get_resource('Lech Wałęsa'))
-print(find_property('England', 'London'))
+print("\n>> Resource of England")
+[print(x) for x in get_resource('England')]
+print("\n>> Resource of London")
+[print(x) for x in get_resource('London')]
+print("\n>> Property of England and London")
+[print(x) for x in find_property('England', 'London')]
+print("\n>> Property of England and London - possible capital")
+[print(x) for x in find_property('England', 'London', ['capital'])]
