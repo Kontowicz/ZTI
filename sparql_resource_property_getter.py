@@ -24,8 +24,8 @@ def get_resource(thing):
 def get_property(word1, word2):
     sparql.setQuery("""
     PREFIX rdfs: <http://www.w3.org/2000/01/rdf-schema#>
-    SELECT ?property
-    WHERE { <http://dbpedia.org/resource/""" + word1 + """> ?property <http://dbpedia.org/resource/""" + word2 + """>}
+    SELECT *
+    WHERE { <http://dbpedia.org/resource/""" + word1 + """> ?label <http://dbpedia.org/resource/""" + word2 + """>}
     """)
     sparql.setReturnFormat(JSON)
     results = sparql.query().convert()
