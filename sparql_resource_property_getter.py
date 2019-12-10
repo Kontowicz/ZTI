@@ -32,9 +32,9 @@ def get_property(word1, word2):
     
     table = []
     for r in results['results']['bindings']:        
-        splitted = r['property']['value'].split('/')
+        splitted = r['label']['value'].split('/')
         if splitted[2] == 'dbpedia.org' and splitted[3] == 'property':
-            table.append((r['property']['value'],splitted[-1]))
+            table.append((r['label']['value'],splitted[-1]))
     
     return table
 
