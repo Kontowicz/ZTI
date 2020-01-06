@@ -30,5 +30,6 @@ big_dict = {
 
 maps = {
     'ORG': 'Organisation',
-    'PERSON': 'Person'
+    'PERSON': 'Person',
+    'GPE': 'Place'
 }
