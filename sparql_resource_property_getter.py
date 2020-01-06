@@ -55,12 +55,12 @@ def find_property(word1, word2, list_of_possible_types = []):
    
     return table
 
-
-# print("\n>> Resource of England")
-# [print(x) for x in get_resource('England')]
-# print("\n>> Resource of London")
-# [print(x) for x in get_resource('London')]
-# print("\n>> Property of England and London")
-# [print(x) for x in find_property('England', 'London')]
-# print("\n>> Property of England and London - possible capital")
-# [print(x) for x in find_property('England', 'London', ['capital'])]
+if __name__ == "__main__":
+    print("\n>> Resource of England")
+    [print(x) for x in get_resource('England')]
+    print("\n>> Resource of London")
+    [print(x) for x in get_resource('London')]
+    print("\n>> Property of England and London")
+    [print(x) for x in find_property('England', 'London')]
+    print("\n>> Property of England and London - possible capital")
+    [print(x) for x in find_property('England', 'London', ['capital'])]
