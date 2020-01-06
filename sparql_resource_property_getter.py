@@ -55,6 +55,9 @@ def find_property(word1, word2, list_of_possible_types = []):
    
     return table
 
+def get_info(rel):
+    return [len(get_resource(x[0])) > 0 for x in rel[:-1]]
+
 if __name__ == "__main__":
     print("\n>> Resource of England")
     [print(x) for x in get_resource('England')]
