@@ -45,7 +45,7 @@ def process_using_spacy(sent, en_core, format_result):
     entities = en_core(sent).ents
     if format_result:
         result = list(
-            zip([e.text for e in entities], [e.label_ for e in entities]))
+            zip([e.text.lower() for e in entities], [e.label_ for e in entities]))
     else:
         result = entities
     return result

@@ -12,8 +12,3 @@ def own_fun(file):
 
     return res
 
-
-
-('SundarPichai', 'ceo', 'Google')
-('BradSmith', 'president', 'Microsoft')
-('JoeBielawski', 'president', 'KnowledgeServices')

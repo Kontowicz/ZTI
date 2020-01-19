@@ -1,6 +1,7 @@
 from glob import glob
 from parse import parse_odp as parse
 from main import own_fun
+from tqdm import tqdm
 
 files = glob('training/*.ttl')
 
@@ -18,7 +19,7 @@ good = 0
 bad = 0
 total = 0
 
-for file in files:
+for file in tqdm(files):
     gt = parse(file)
     pred = own_fun(file)
 

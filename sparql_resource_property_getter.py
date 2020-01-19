@@ -58,6 +58,20 @@ def find_property(word1, word2, list_of_possible_types = []):
 def get_info(rel):
     return [len(get_resource(x[0])) > 0 for x in rel[:-1]]
 
+def new_getter(word):
+    word = " ".join([x for x in word.split(' ') if 'the' not in x or len(x) > 3])
+    word = word.title()
+
+    sparql = SPARQLWrapper("http://dbpedia.org/sparql")
+    sparql.setQuery('select ?i ?type where {\n  ?i rdfs:label "' + word + '"@en ;\n     a ?type . } ')
+
+    sparql.setReturnFormat(JSON)
+    res = sparql.query().convert()
+
+    return [x['type']['value'].split('/')[-1] for x in res['results']['bindings'] if 'http://dbpedia.org/ontology/' in x['type']['value']]
+
+
+
 if __name__ == "__main__":
     print("\n>> Resource of England")
     [print(x) for x in get_resource('England')]

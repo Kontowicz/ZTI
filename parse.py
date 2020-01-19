@@ -33,7 +33,7 @@ def parse_odp(file):
             if item[:3] == '[ a' and item[-3:] == '] .':
                 x3 = []
                 for fi in item.split('\n')[1:4]:
-                    x3.append(fi.split(':')[2][:-2].replace('_', ''))
+                    x3.append(fi.split(':')[2][:-2].replace('_', '').lower())
 
                 results.append(tuple(x3))
 
