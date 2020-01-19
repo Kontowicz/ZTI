@@ -18,7 +18,7 @@ def get_relation(pary, sent):
     
     rel = []
     for a,b in perm:
-        co = big_dict[(maps[a[1]], maps[b[1]])]
+        co = big_dict.get((maps.get(a[1], ''), maps.get(b[1], '')), '')
         for c in co:
             if ps.stem(c) in sent:
                 rel.append((a, b, c))

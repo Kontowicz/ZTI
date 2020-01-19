@@ -22,3 +22,20 @@ def parse_task_1_2(file, only_sentences=False):
         return list(sentences.keys())[0], sentences
     else:
         return meta, sentences
+
+
+def parse_odp(file):
+    with open(file, 'r') as file:
+        data = file.read().split('\n\n')
+
+        results = []
+        for item in data:
+            if item[:3] == '[ a' and item[-3:] == '] .':
+                x3 = []
+                for fi in item.split('\n')[1:4]:
+                    x3.append(fi.split(':')[2][:-2].replace('_', ''))
+
+                results.append(tuple(x3))
+
+
+        return results
