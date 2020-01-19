@@ -5,23 +5,27 @@ from main import own_fun
 files = glob('training/*.ttl')
 
 def compare(pred, gt):
-    kont = 0
+    good, bad = 0, 0
     for p in pred:
         if p in gt:
-            print(p)
-            kont+=1
+            good+=1
+        else:
+            bad+=1
 
-    return kont
+    return good, bad
 
 good = 0
+bad = 0
 total = 0
 
 for file in files:
     gt = parse(file)
     pred = own_fun(file)
 
-    pkt = compare(pred, gt)
-    good += pkt
+    g,b  = compare(pred, gt)
+    good += g
+    bad += b
     total += len(gt)
 
-print(f'Result: {good}/{total}')
+print(f'Poprawne/wszystkie: {good}/{total}')
+print(f'Niepoprawne/wszystkie: {bad}/{total}')
