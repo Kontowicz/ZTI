@@ -2,12 +2,12 @@ big_dict = {
      ('Organisation', 'Organisation'): ['affiliation'],
      ('Person', 'EducationalInstitution'): ['almaMater'],
      ('Band', 'Person'): ['formerBandMember', 'bandMember'],
-     ('Person', 'Place'): ['deathPlace', 'birthPlace'],
+     ('Person', 'Place'): ['deathPlace', 'birthPlace', 'location'],
      ('Organisation', 'Person'): ['president', 'ceo'],
      ('Person', 'Person'): ['spouse', 'relative', 'parent', 'child'],
      ('Athlete', 'SportsTeam'): ['formerTeam', 'debutTeam', 'club'],
      ('Organisation', 'Country'): ['country'],
-     ('Person', 'Country'): ['country'],
+     ('Person', 'Country'): ['country','nationality'],
      ('Place', 'Country'): ['country'],
      ('PopulatedPlace', 'PopulatedPlace'): ['department'],
      ('Place', 'PopulatedPlace'): ['district'],
@@ -18,11 +18,8 @@ big_dict = {
      ('Organisation', 'Settlement'): ['hometown'],
      ('Person', 'Settlement'): ['hometown'],
      ('PopulatedPlace', 'Person'): ['leaderName'],
-     ('Place', 'Place'): ['locatedInArea'],
+     ('Place', 'Place'): ['location','locatedInArea'],
      ('Organisation', 'Place'): ['location'],
-     ('Person', 'Place'): ['location'],
-     ('Place', 'Place'): ['location'],
-     ('Person', 'Country'): ['nationality'],
      ('Company', 'Company'): ['subsidiary'],
      ('ArchitecturalStructure', 'Organisation'): ['tenant'],
      ('Athlete', 'Person'): ['trainer']
@@ -34,7 +31,8 @@ maps = {
     'GPE': 'Place',
     'LOC': 'PopulatedPlace',
     'FAC': 'ArchitecturalStructure',
-    'WORK_OF_ART': 'Band'
+    'WORK_OF_ART': 'Band',
+    'US' : 'UnitedStates'
 }
 
 ignore_list = [
