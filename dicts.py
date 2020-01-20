@@ -34,3 +34,17 @@ maps = {
     'GPE': 'Place',
     'LOC': 'PopulatedPlace'
 }
+
+ignore_list = [
+    'DATE',
+    'EVENT',
+    'PERCENT',
+    'NORP',
+    'ORDINAL'
+    'CARDINAL',
+    'TIME'
+]
+
+delete_list = [
+    (['Person'], ['Place', 'Location'])
+]

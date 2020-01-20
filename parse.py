@@ -1,4 +1,5 @@
 import re
+import string
 
 def parse_task_1_2(file, only_sentences=False):
     with open(file, 'r') as file:
@@ -36,10 +37,14 @@ def parse_odp(file):
                     aa = fi.split(':')[2]
 
                     if aa[:2] == '//' and aa[-3:] == '> ;':
-                        aa = aa.split('/')[-1].split('(')[0].replace('_', '').replace('%2C', '').lower()
+                        aa = aa.split('/')[-1].split('(')[0]
                     else:
-                        aa = aa[:-2].replace('_', '').lower()
-                        x3.append(aa)
+                        aa = aa[:-2]
+                    
+                    aa = aa.replace('_', '').replace('%2C', '').lower()
+                    aa = aa.translate(str.maketrans('', '', string.punctuation))
+                    aa = aa.strip()
+                    x3.append(aa)
                 results.append(tuple(x3))
 
 

@@ -6,18 +6,9 @@ from nltk.corpus import stopwords
 import string
 from sparql_resource_property_getter import new_getter
 
+
 ps = PorterStemmer() 
 stop_words = list(set(stopwords.words('english')) )
-
-def ask(el):
-    a = sl.annotate('https://api.dbpedia-spotlight.org/en/annotate', el)[0]['types']
-    a = [x for x in a.split(',') if 'DBpedia:' in x]
-
-    if len(a)>0:
-        a = a[0].split(':')[1]
-    else:
-        raise sl.SpotlightException
-    return a
 
 
 def get_relation(pary, sent):
@@ -28,9 +19,10 @@ def get_relation(pary, sent):
     
     rel = []
     for a,b in perm:
-        a_, b_ = new_getter(a[0]), new_getter(b[0])
+        if a[1] in ignore_list or b[1] in ignore_list:
+                continue
 
-        # print(a[0], a_, ' - ', b[0], b_)
+        a_, b_ = new_getter(a[0]), new_getter(b[0])
 
         if len(a_) == 0:
             a_ = [maps.get(a[1], '')]
@@ -41,11 +33,13 @@ def get_relation(pary, sent):
         for a__ in a_:
             for b__ in b_:
                 co = big_dict.get((a__, b__), '')
-                if co == '':
-                    co = big_dict.get((b__,a__), '')
 
                 for c in co:
                     if ps.stem(c) in sent:
+                        rel.append((a, b, c))
+
+                if len(rel) == 0:
+                    for c in co:
                         rel.append((a, b, c))
 
     return rel
