@@ -7,7 +7,7 @@ files = glob('training/*.ttl')
 
 def compare(pred, gt):
     good, bad = 0, 0
-    print(gt)
+    print('\n', gt)
     for p in pred:
         print(p)
         if p in gt:

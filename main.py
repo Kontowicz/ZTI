@@ -8,9 +8,9 @@ def clean_string(x):
     a,b,c = [x[1][0], x[2], x[0][0]]
 
     if b in a:
-        a = ' '.join([aa for aa in a.split() if b not in aa])
+        a = ' '.join([aa for aa in a.split() if b not in aa or aa == 'the'])
     if b in c:
-        c = ' '.join([aa for aa in c.split() if b not in aa])
+        c = ' '.join([aa for aa in c.split() if b not in aa or aa == 'the'])
 
     tab = a,b,c
     res_tab = []
