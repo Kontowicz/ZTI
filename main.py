@@ -8,13 +8,15 @@ def clean_string(x):
     a,b,c = [x[1][0], x[2], x[0][0]]
 
     if b in a:
-        a = ' '.join([aa for aa in a.split() if b not in aa or aa == 'the'])
+        a = ' '.join([aa for aa in a.split() if b not in aa])
     if b in c:
-        c = ' '.join([aa for aa in c.split() if b not in aa or aa == 'the'])
+        c = ' '.join([aa for aa in c.split() if b not in aa])
 
     tab = a,b,c
     res_tab = []
     for aa in tab:
+        aa = aa.split()
+        aa = ' '.join([x for x in aa if x != 'the'])
         aa = aa.replace(' ', '')
         aa = aa.translate(str.maketrans('', '', string.punctuation))
         aa = aa.strip()
