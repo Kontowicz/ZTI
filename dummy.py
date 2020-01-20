@@ -5,7 +5,7 @@ knowladge = [
     ['Band', 'Person', 'bandMember', ['play', 'music','band']],
     ['Person', 'Place', 'birth', ['birth', 'born','from']],
     ['Person', 'ORG', 'ceo', ['president', 'boss', 'head', 'chief','ceo']],
-    #['Person', 'Person', 'child', ['child','son','daughter']],
+    ['Person', 'Person', 'child', ['child','son','daughter']],
     ['Athlete', 'SportsTeam', 'club', ['train', 'play','player','club','team']],
     ['ORG', 'country', 'country', ['located','from','in']],
     ['Person', 'country', 'country', ['located','from','in']],
@@ -63,24 +63,20 @@ def add_synonims():
         knowladge[i][3] = list(set(wide))
 
 def get_relations(zdanie, pary):        
-    #add_synonims()
+    add_synonims()
 
     import copy
-    print(zdanie)
     zdanie = copy.copy(zdanie)
-
+    zdanie = zdanie.lower()
     for item in pary:
         zdanie = zdanie.replace(item[0], item[0].replace(' ','_')+'|'+item[1])
-    
-    
+
     def in_first(word):
         to_return = []
         for item in knowladge:
             if word.lower() == item[0].lower():
                 to_return.append(item)
         return to_return
-
-
 
     from nltk.stem import WordNetLemmatizer 
     
@@ -89,33 +85,36 @@ def get_relations(zdanie, pary):
     zdanie = re.sub(r'[^a-zA-Z0-9 |]', '', zdanie)
     print(zdanie)
     zdanie = zdanie.split(' ')
+
     for i in range(0, len(zdanie)):
         tmp = []
         if '|' in zdanie[i]:
             tmp = in_first(zdanie[i].split('|')[1])
-        if tmp != []:
-            string = [x.lower() for x in zdanie[i+1::]]
-            for item in tmp:
-#                 print('item')
-#                 print(item[3])
-                xx = [y for x in [w.split('|') for w in string] for y in x]
-                xx = [y.lower() for y in xx]
 
-                if item[1].lower() in xx:
-#                     print('item fround')
-                    string = xx
-                
-                    pos = xx.index(item[1].lower())
-                    string = xx[0:pos]
-                    xx = [str(lemmatizer.lemmatize(word)).lower() for word in xx]
-                    print(f'kw: {item[3]}')
-                    print(f'xx: {xx}')
-                    for kw in item[3]:
-#                         print('kw')
-#                         print(kw)
-#                         print(string)
-                        if str(lemmatizer.lemmatize(kw)).lower() in xx:
-                            print()
-                            print(item[2]) #nazwa relacji
-                            print(zdanie[i:])
-                            print()        
+        if tmp != []:
+            string = [lemmatizer.lemmatize(x.lower()) for x in zdanie[i+1::]]
+            new_string = []
+            for item in string:
+                if '|' in item:
+                    d = item.split('|')
+                    new_string.append(d[0])
+                    new_string.append(d[1])
+                else:
+                    new_string.append(item)
+
+            for entry in tmp:
+                if entry[1].lower() in new_string:
+                    kw_find = new_string[0:new_string.index(entry[1].lower())]
+                    for kw in entry[3]:
+                        if lemmatizer.lemmatize(kw.lower()) in kw_find:
+                            print('Relation: ' + zdanie[i].split('|')[0] + ' ' + entry[2] + ' ' + string[-1].split('|')[0])
+
+if '__main__' == __name__:
+    from parse import parse_task_1_2
+    sent, sentences = parse_task_1_2('training/file_39.ttl', only_sentences=True)
+    from entities_recognition_tester import process_using_spacy
+    import en_core_web_sm
+    sent = 'Kim Jong-un became the supreme leader of North Korea in 2011, succeeding his father Kim Jong-il'
+    pary = process_using_spacy(sent, en_core=en_core_web_sm.load(), format_result=True)
+
+    get_relations(sent, pary)
