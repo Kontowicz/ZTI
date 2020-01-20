@@ -108,6 +108,8 @@ def get_relations(zdanie, pary):
                     for kw in entry[3]:
                         if lemmatizer.lemmatize(kw.lower()) in kw_find:
                             print('Relation: ' + zdanie[i].split('|')[0] + ' ' + entry[2] + ' ' + string[-1].split('|')[0])
+                            p = zdanie[i].split('|')[0] + ' ' + entry[2] + ' ' + string[-1].split('|')[0]
+                            return p.split(' ')
 
 if '__main__' == __name__:
     from parse import parse_task_1_2
