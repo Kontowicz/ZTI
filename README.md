@@ -7,9 +7,9 @@ należących do jednej z klas (Task 1) oraz określenia relacji (Task 3) między
 ### Podział prac
 Zadanie zostało rozdzielone między członków zespołu, aby każdy z modułów mógł być realizowany oddzielnie 
 i niezależnie od innych:
-  1) Piotr Kontowicz - wczytywanie danych oraz parsowanie
-  2) Cezary Waligóra, Łukasz Żegalski - przetwarzanie języka naturalnego 
-  3) Bartosz Ptak, Mikołaj Walkowiak - komunikacja z DBpedią
+  ## Piotr Kontowicz - wczytywanie danych oraz parsowanie
+  ## Cezary Waligóra, Łukasz Żegalski - przetwarzanie języka naturalnego 
+  ## Bartosz Ptak, Mikołaj Walkowiak - komunikacja z DBpedią
 
 ### Wykorzystane biblioteki:
 * `nltk`
@@ -45,3 +45,4 @@ i niezależnie od innych:
   relacja wykryta przez system odwrotnie co skutkowało zaliczeniem danej analizy jako nie poprawnej mimo że była ona mniej bądź bardziej szczegółowa
   w stosunku do poprawnej co skutkuje tym że testy poprawności mogą być zaniżone.
  
+ ### 
