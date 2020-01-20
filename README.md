@@ -11,7 +11,7 @@ i niezależnie od innych:
   2) Cezary Waligóra, Łukasz Żegalski - przetważanie języka naturalnego 
   3) Bartosz Ptak, Mikołaj Walkowiak - komunikacja z DBpedią
 
-Wykożystane biblioteki:
+### Wykożystane biblioteki:
 * `nltk`
 * `string`
 * `itertools`
