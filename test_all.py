@@ -10,8 +10,11 @@ def compare(pred, gt):
     print('\n', gt)
     for p in pred:
         print(p)
-        if p in gt:
-            good+=1
+        for g in gt:
+            if g[0] in p:
+                if g[1] in p:
+                    if g[2] in p:
+                        good +=1
         else:
             bad+=1
     print('*'*20, '\n\n')
