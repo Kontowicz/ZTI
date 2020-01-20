@@ -32,7 +32,9 @@ maps = {
     'ORG': 'Organisation',
     'PERSON': 'Person',
     'GPE': 'Place',
-    'LOC': 'PopulatedPlace'
+    'LOC': 'PopulatedPlace',
+    'FAC': 'ArchitecturalStructure',
+    'WORK_OF_ART': 'Band'
 }
 
 ignore_list = [
