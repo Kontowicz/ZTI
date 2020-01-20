@@ -1,8 +1,10 @@
-OKE2018 CHALLENGE – ESWC 2018: Task4-Knowledge Extraction (https://project-hobbit.eu/challenges/oke2018-challenge-eswc-2018/tasks/)
+### Temat
+[OKE2018 CHALLENGE – ESWC 2018: Task4-Knowledge Extraction](https://project-hobbit.eu/challenges/oke2018-challenge-eswc-2018/tasks/)
 
-Zadanie polega na wyodrębnieniu z dokumentów określonych byów 
+Zadanie polega na wyodrębnieniu z dokumentów określonych bytów 
 należących do jednej z klas (Task 1) oraz określenia relacji (Task 3) między nimi.
 
+### Podział prac
 Zadanie zostło rozdzielone między członków zespołu aby każdy z modułów mogł być realizowany oddzielnie 
 i niezależnie od innych:
   1) Piotr Kontowicz - wczytywanie danych oraz parsowanie
@@ -10,25 +12,25 @@ i niezależnie od innych:
   3) Bartosz Ptak, Mikołaj Walkowiak - komunikacja z DBpedią
 
 Wykożystane biblioteki:
-  nltk
-  string
-  itertools
-  SPARQLWrapper 
-  spacy
-  re
+* `nltk`
+* `string`
+* `itertools`
+* `SPARQLWrapper`
+* `spacy`
+* `re`
 
-Etap 1: 
+### Etap 1: 
   Polega na parsowaniu plików ttl z wykożystaniem regexa ma za zadanie wyodrębnić z nich zdania (parse_task_1_2) na których będzie operował cały system
   oraz poprawne odpowiedzi (parse_odp) wykożystywane do analizowania poprawności systemu. Największym probleme był fakt iż pliki ttl nie miały 
   jednej wspólnej struktury, skutkowało to niekiedy błędami w wyodrębnianiu istotnych informacji. 
 
-Etap 2: 
+### Etap 2: 
   Główną częścią etapu jest wyodrębnienie ze zdań bytów dla których będzie się określać relację. Po przetestowaniu trzech rozwiązań
   (nltk, StanfordNERTagger, Spacy) wybrany został modół Spacy który najlepiej radził sobie z wyodrębnieniem obiektów składających się z więcej 
   niż jednego słowa takich jak: Imię Nazwisko czy nazwy instytucji. Funkcja  process_using_spacy analizuję pojedyncze zdanie, zwracająć listę 
   krotek zawierających wykryty byt oraz klasę do której przynależy. 
 
-Etap 3: 
+### Etap 3: 
   Polega na określeniu relacji między bytami wykożystująy wiedzę zawartą w DBpedi oraz typy bytów określone przez spacy.
   Etapy działania funkcji (get_relation):
     1. wykonanie !!!permutacji!!! wszystkich bbytów w zdaniu   
@@ -40,7 +42,7 @@ Etap 3:
     7. pobranie ze słownika relacji na podstawie typów obiektów(klucze)
     8. sprawdzenie czy w zdaniu występują morfologiczne słowa dla słowa danego obiektu, jeśłi tak to dodaj (obiekt, obirkt, relacja) do listy
 
-Testy:
+### Testy:
   Na końcu została wykonany test poprawności dla danego systemu polegający na określeniu dobrze oraz źle wykrytych relacji w stosunku do wszystkich.
   Największym problem polegał na małych różnicach między słowami wykrytymi a poprawnymi odpowiedziami (the united states = united states),
   skutkowało to zaliczeniem analizy danego zdania jako niepoprawne, kolejnym przypadkiem skutkującym niepoprawna analizą poprawności były sytuację 
