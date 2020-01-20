@@ -7,9 +7,9 @@ należących do jednej z klas (Task 1) oraz określenia relacji (Task 3) między
 ### Podział prac
 Zadanie zostało rozdzielone między członków zespołu, aby każdy z modułów mógł być realizowany oddzielnie 
 i niezależnie od innych:
-  ## Piotr Kontowicz - wczytywanie danych oraz parsowanie
-  ## Cezary Waligóra, Łukasz Żegalski - przetwarzanie języka naturalnego 
-  ## Bartosz Ptak, Mikołaj Walkowiak - komunikacja z DBpedią
+  #### Piotr Kontowicz - wczytywanie danych oraz parsowanie
+  #### Cezary Waligóra, Łukasz Żegalski - przetwarzanie języka naturalnego 
+  #### Bartosz Ptak, Mikołaj Walkowiak - komunikacja z DBpedią
 
 ### Wykorzystane biblioteki:
 * `nltk`
