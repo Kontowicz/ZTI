@@ -7,14 +7,14 @@ należących do jednej z klas (Task 1) oraz określenia relacji (Task 3) między
 ### Podział prac
 Zadanie zostało rozdzielone między członków zespołu, aby każdy z modułów mógł być realizowany oddzielnie 
 i niezależnie od innych:
-#### Piotr Kontowicz - wczytywanie danych oraz parsowanie
+##### Piotr Kontowicz - wczytywanie danych oraz parsowanie
 Stworzenie modułu `parse.py` odpowiedzialnego za przetworzenie plików `.ttl` w celu wyodrębnienia odpowiednich informacji 
 oraz zaproponowanie rozwiązania wykorzystywanego do szukania relacji pomiędzy bytami polegającego na sprawdzaniu dwóch sąsiadujących
 z sobą bytów oraz zależnie od tego sprawdzanie czy w zdaniu występują słowa kluczowe wskazujące na wystąpienie między nimi relajii.
-#### Cezary Waligóra, Łukasz Żegalski - przetwarzanie języka naturalnego 
+##### Cezary Waligóra, Łukasz Żegalski - przetwarzanie języka naturalnego 
 Stworzenie modułu `entities_recognition_tester.py ` zawierającego w sobię implementację trzech rozwiązań dotyczących `NLP` w celu 
 sprawdzenia sposoby wykrywania bytów w zdaniu przez każdą z metod umożiwiającą wybór najbardziej adekwatnej w celu uzyskania najlepszych wyników. Przeanalizowanie i próby wykorzystania wbudowanych funkcji `Spacy` do wyznaczenia słów między którymi występują relację poprzez analizowanie poddrzewa danego słowa oraz zależności najbliższego wspólnego przodka. Stworzenie dokumentacji na GitHub.    
-#### Bartosz Ptak, Mikołaj Walkowiak - komunikacja z DBpedią
+##### Bartosz Ptak, Mikołaj Walkowiak - komunikacja z DBpedią
 Stworzenie modułu `sparql_resource_property_getter.py` zawierającego implementację funkcji niezbędnych do odpytywania DBpedi za pomocą `SPARQ` wykożystywanych do wyszukiwa typów obiektów wykrytych przez `Spacy` bądź zamianę typów na odpowiadające im bądź pokrwne z wykożystanie słownika `dicts.py`. Moduł `word_word_relation.py` posiada implementację funkcji wykożystywanej do wyznaczania relacji między danymi słowami.
 
 ### Wykorzystane biblioteki:
