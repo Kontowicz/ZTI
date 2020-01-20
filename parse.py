@@ -46,8 +46,8 @@ def parse_odp(file):
                     aa = aa.strip()
                     x3.append(aa)
 
-                if item[1] == 'locatedinarea':
-                    item[1] = 'location'
+                if x3[1] == 'locatedinarea':
+                    x3[1] = 'location'
                 results.append(tuple(x3))
 
 
