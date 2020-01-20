@@ -28,14 +28,14 @@ i niezależnie od innych:
 ### Etap 3: 
   Polega na określeniu relacji między bytami wykożystująy wiedzę zawartą w DBpedi oraz typy bytów określone przez spacy.
   Etapy działania funkcji (get_relation):
-    1. wykonanie !!!permutacji!!! wszystkich bbytów w zdaniu   
-    2. zamiana wszystkich liter na małe (chyba sent.translate(str.maketrans('', '', string.punctuation))
-    3. usunięcie stop words ze zdania
-    4. sprawdzenie czy typ obiektu nie należy do ignorelist
-    5. pobranie nowego typu obiektu z DPpedi jeśli występuje i zamiana dla danego słowa
-    6. jeśli nie odnaleziona w DB skorzystań z typu spacy i zmapować 
-    7. pobranie ze słownika relacji na podstawie typów obiektów(klucze)
-    8. sprawdzenie czy w zdaniu występują morfologiczne słowa dla słowa danego obiektu, jeśłi tak to dodaj (obiekt, obirkt, relacja) do listy
+ 1. wykonanie !!!permutacji!!! wszystkich bbytów w zdaniu   
+ 2. zamiana wszystkich liter na małe (chyba sent.translate(str.maketrans('', '', string.punctuation))
+ 3. usunięcie stop words ze zdania
+ 4. sprawdzenie czy typ obiektu nie należy do ignorelist
+ 5. pobranie nowego typu obiektu z DPpedi jeśli występuje i zamiana dla danego słowa
+ 6. jeśli nie odnaleziona w DB skorzystań z typu spacy i zmapować 
+ 7. pobranie ze słownika relacji na podstawie typów obiektów(klucze)
+ 8. sprawdzenie czy w zdaniu występują morfologiczne słowa dla słowa danego obiektu, jeśłi tak to dodaj (obiekt, obirkt, relacja) do listy
 
 ### Testy:
   Na końcu została wykonany test poprawności dla danego systemu polegający na określeniu dobrze oraz źle wykrytych relacji w stosunku do wszystkich.
