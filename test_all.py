@@ -11,10 +11,8 @@ def compare(pred, gt):
     for p in pred:
         print(p)
         for g in gt:
-            if g[0] in p:
-                if g[1] in p:
-                    if g[2] in p:
-                        good +=1
+            if sum([h in p for h in g]) == 3:
+                good +=1
         else:
             bad+=1
     print('*'*20, '\n\n')
