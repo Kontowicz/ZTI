@@ -20,9 +20,7 @@ i niezależnie od innych:
 * `re`
 
 ### Etap 1: 
-  Polega na parsowaniu plików ttl z wykożystaniem regexa ma za zadanie wyodrębnić z nich zdania (parse_task_1_2) na których będzie operował cały system
-  oraz poprawne odpowiedzi (parse_odp) wykożystywane do analizowania poprawności systemu. Największym probleme był fakt iż pliki ttl nie miały 
-  jednej wspólnej struktury, skutkowało to niekiedy błędami w wyodrębnianiu istotnych informacji. 
+  Polega na parsowaniu plików `.ttl` z wykożystaniem wyrażeń regularnych ma za zadanie wyodrębnić z nich zdania (`parse_task_1_2`), na których będzie operował cały system oraz poprawne odpowiedzi (`parse_odp`) wykorzystywane do analizowania poprawności systemu. Największym problemem był fakt, iż pliki `.ttl` nie miały jednej wspólnej struktury. Skutkowało to niekiedy błędami w wyodrębnianiu istotnych informacji. 
 
 ### Etap 2: 
   Główną częścią etapu jest wyodrębnienie ze zdań bytów dla których będzie się określać relację. Po przetestowaniu trzech rozwiązań
