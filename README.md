@@ -23,10 +23,7 @@ i niezależnie od innych:
   Polega na parsowaniu plików `.ttl` z wykożystaniem wyrażeń regularnych ma za zadanie wyodrębnić z nich zdania (`parse_task_1_2`), na których będzie operował cały system oraz poprawne odpowiedzi (`parse_odp`) wykorzystywane do analizowania poprawności systemu. Największym problemem był fakt, iż pliki `.ttl` nie miały jednej wspólnej struktury. Skutkowało to niekiedy błędami w wyodrębnianiu istotnych informacji. 
 
 ### Etap 2: 
-  Główną częścią etapu jest wyodrębnienie ze zdań bytów dla których będzie się określać relację. Po przetestowaniu trzech rozwiązań
-  (nltk, StanfordNERTagger, Spacy) wybrany został modół Spacy który najlepiej radził sobie z wyodrębnieniem obiektów składających się z więcej 
-  niż jednego słowa takich jak: Imię Nazwisko czy nazwy instytucji. Funkcja  process_using_spacy analizuję pojedyncze zdanie, zwracająć listę 
-  krotek zawierających wykryty byt oraz klasę do której przynależy. 
+  Główną częścią etapu jest wyodrębnienie ze zdań bytów, dla których będzie się określać relację. Po przetestowaniu trzech rozwiązań: `nltk`, `StanfordNERTagger`, `Spacy` wybrany został modół `Spacy`, który najlepiej radził sobie z wyodrębnieniem obiektów składających się z więcej niż jednego słowa takich jak: Imię Nazwisko czy nazwy instytucji. Funkcja  `process_using_spacy` analizuje pojedyncze zdanie, zwracająć listę krotek zawierających wykryty byt oraz klasę, do której przynależy. 
 
 ### Etap 3: 
   Polega na określeniu relacji między bytami wykożystująy wiedzę zawartą w DBpedi oraz typy bytów określone przez spacy.
