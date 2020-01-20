@@ -45,6 +45,9 @@ def parse_odp(file):
                     aa = aa.translate(str.maketrans('', '', string.punctuation))
                     aa = aa.strip()
                     x3.append(aa)
+
+                if item[1] == 'locatedinarea':
+                    item[1] = 'location'
                 results.append(tuple(x3))
 
 
