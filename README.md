@@ -8,7 +8,7 @@ należących do jednej z klas (Task 1) oraz określenia relacji (Task 3) między
 Zadanie zostało rozdzielone między członków zespołu, aby każdy z modułów mógł być realizowany oddzielnie 
 i niezależnie od innych:
 ##### Piotr Kontowicz - wczytywanie danych oraz parsowanie
-Stworzenie modułu [`parse.py`](parse.py) odpowiedzialnego za przetworzenie plików `.ttl` w celu wyodrębnienia odpowiednich informacji, oraz zaproponowanie rozwiązania wykorzystywanego do szukania relacji pomiędzy bytami polegającego na sprawdzaniu dwóch sąsiadujących z sobą bytów, oraz zależnie od tego sprawdzanie, czy w zdaniu występują słowa kluczowe wskazujące na wystąpienie między nimi relaji.
+Stworzenie modułu [`parse.py`](parse.py) odpowiedzialnego za przetworzenie plików `.ttl` w celu wyodrębnienia odpowiednich informacji, oraz zaproponowanie rozwiązania wykorzystywanego do szukania relacji pomiędzy bytami polegającego na sprawdzaniu dwóch sąsiadujących z sobą bytów, oraz zależnie od tego sprawdzanie, czy w zdaniu występują słowa kluczowe wskazujące na wystąpienie między nimi relacji.
 ##### Cezary Waligóra, Łukasz Żegalski - przetwarzanie języka naturalnego 
 Stworzenie modułu [`entities_recognition_tester.py `](entities_recognition_tester.py) zawierającego w sobie implementację trzech rozwiązań dotyczących `NLP` w celu 
 sprawdzenia sposobu wykrywania bytów w zdaniu przez każdą z metod umożliwiającą wybór najbardziej adekwatnej w celu uzyskania najlepszych wyników. Przeanalizowanie i próby wykorzystania wbudowanych funkcji `Spacy` do wyznaczenia słów, między którymi występują relację poprzez analizowanie poddrzewa danego słowa oraz zależności najbliższego wspólnego przodka. Stworzenie dokumentacji na GitHub.    
