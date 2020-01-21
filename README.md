@@ -26,7 +26,7 @@ Stworzenie modułu [`sparql_resource_property_getter.py`](sparql_resource_proper
 * `re`
 
 ### Etap 1: 
-  Polega na parsowaniu plików `.ttl` z wykorzystaniem wyrażeń regularnych ma za zadanie wyodrębnić z nich zdania (`parse_task_1_2`), na których będzie operował cały system oraz poprawne odpowiedzi (`parse_odp`) wykorzystywane do analizowania poprawności systemu. Największym problemem był fakt, iż pliki `.ttl` nie miały jednej wspólnej struktury. Skutkowało to niekiedy błędami w wyodrębnianiu istotnych informacji. 
+  Polega na parsowaniu plików `.ttl` z wykorzystaniem wyrażeń regularnych ma za zadanie wyodrębnić z nich zdania [`parse_task_1_2`](https://github.com/Kontowicz/ZTI/blob/5b612d3f691ecb108a9573719f36bc209640c7f4/parse.py#L4), na których będzie operował cały system oraz poprawne odpowiedzi (`parse_odp`) wykorzystywane do analizowania poprawności systemu. Największym problemem był fakt, iż pliki `.ttl` nie miały jednej wspólnej struktury. Skutkowało to niekiedy błędami w wyodrębnianiu istotnych informacji. 
 
 ### Etap 2: 
   Główną częścią etapu jest wyodrębnienie ze zdań bytów, dla których będzie się określać relację. Po przetestowaniu trzech rozwiązań: `nltk`, `StanfordNERTagger`, `Spacy` wybrany został moduł `Spacy`, który najlepiej radził sobie z wyodrębnieniem obiektów składających się z więcej niż jednego słowa takich jak: Imię Nazwisko czy nazwy instytucji. Funkcja  `process_using_spacy` analizuje pojedyncze zdanie, zwracając listę krotek zawierających wykryty byt oraz klasę, do której przynależy. 
